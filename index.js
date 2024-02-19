@@ -1,12 +1,8 @@
 const express = require("express");
 const app = express()
-const PORT = 4000;
-const body_parser = require("body-parser")
+require('dotenv').config()
+const PORT = 8000;
+app.use(express.json())
+app.use('/test', require("./Controller/controller"))
 
-
-app.use(body_parser.json())
-app.use("/getrooms", require('./Controller/Rooms_controller'))
-
-app.use('/Create', require('./Controller/Rooms_controller'))
-
-app.listen(PORT, () => console.log("server is live"))
+app.listen(PORT, () => console.log("server in live"))   
